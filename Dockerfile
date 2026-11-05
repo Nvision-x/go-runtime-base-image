@@ -3,7 +3,7 @@
 FROM alpine:3.24 AS runtime
 # apk upgrade: base-layer fixes (openssl/musl/busybox) land between alpine point releases
 RUN apk upgrade --no-cache \
-    && apk add --no-cache ca-certificates tzdata \
+    && apk add --no-cache ca-certificates tzdata curl \
     && addgroup -g 1000 -S app \
     && adduser -u 1000 -S -G app -h /app -s /sbin/nologin app
 WORKDIR /app
