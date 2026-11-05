@@ -11,6 +11,7 @@ WORKDIR /app
 USER 1000:1000
 
 FROM runtime AS cifs
-USER 0
 # mount.cifs needs root; cifs-connector runs privileged and execs mount/umount
+# hadolint ignore=DL3002
+USER 0
 RUN apk add --no-cache cifs-utils util-linux
